@@ -7,3 +7,8 @@ from .serializers import ServiceRequestSerializer
 class ServiceRequestAPIView(generics.ListCreateAPIView):
     queryset = ServiceRequest.objects.all()
     serializer_class = ServiceRequestSerializer
+
+def index(request):
+    complaints = ServiceRequest.objects.order_by('complaint')
+    context = {'complaints': complaints}
+    return render(request, 'mech_app/index.html', context)

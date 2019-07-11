@@ -19,5 +19,6 @@ from mech_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
     path(r'servicerequest', views.ServiceRequestAPIView.as_view(), name='servicerequest'),
 ]

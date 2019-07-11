@@ -1,0 +1,9 @@
+{% if complaints %}
+    <ul>
+    {% for complaint in complaints %}
+        <li>{{ complaint }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> No service requests yet.</p>
+{% endif %}
