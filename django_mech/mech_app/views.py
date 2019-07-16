@@ -5,7 +5,9 @@ from .serializers import ServiceRequestSerializer
 
 # Create your views here.
 class ServiceRequestAPIView(generics.ListCreateAPIView):
-    queryset = ServiceRequest.objects.all()
+    # queryset = ServiceRequest.objects.all()
+    # order by time sent in from most recent to least recent
+    queryset = ServiceRequest.objects.order_by('-time_sent')
     serializer_class = ServiceRequestSerializer
 
 def index(request):
