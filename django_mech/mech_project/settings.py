@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'mech_app',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework.authtoken', 
+    'rest_auth',               
 ]
 
 MIDDLEWARE = [
@@ -139,12 +141,14 @@ REST_FRAMEWORK = {
         #'rest_framework.permissions.IsAdminUser',
         #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
-    # 'DEFAULT_AUTHENTICATION_CLASSES': (
-    #     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-    #     'rest_framework.authentication.SessionAuthentication',
-    #     'rest_framework.authentication.BasicAuthentication',
-    # ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
 }
+
+REST_USE_JWT = True
 
 # allow the user to refesh within a session 
 JWT_AUTH = {
