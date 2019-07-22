@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mech_app import views, urls
+from mech_app.views import ServiceRequestAPIView, UserViewSet
 from django.conf.urls import url, include
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 urlpatterns = [
     path('', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^mech-app/', include('mech_app.urls')),
+    path(r'mech-app/token/', obtain_jwt_token),
+    path(r'mech-app/token/refresh/', refresh_jwt_token),
+    path(r'mech-app/service/', ServiceRequestAPIView.as_view()),
 ]

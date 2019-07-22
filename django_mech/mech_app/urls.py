@@ -1,6 +1,8 @@
 from rest_framework import routers
-from .views import UserViewSet
+from .views import UserViewSet, ServiceRequestAPIView
 from django.conf.urls import url, include
+from django.urls import path
+
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
@@ -11,5 +13,4 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^auth/', include('rest_auth.urls')),
-    #url(r'mech-app/', include('rest_framework.urls', namespace='rest_framework'))
 ]
