@@ -14,8 +14,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         """
-        Optionally restricts the returned purchases to a given user,
-        by filtering against a `username` query parameter in the URL.
+        Optionally restricts the returned users to a username given by the front end 
         """
         queryset = User.objects.all()
         username = self.request.query_params.get('username', None)
@@ -23,23 +22,22 @@ class UserViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(username__iexact=username)
         return queryset
 
-    # def get_permission(self):
-    #     permission_classes = []
-    #     if self.action == 'create':
-    #         permission_classes = [AllowAny]
-    #     elif self.action == 'retrieve' or self.ation == 'update' or self.action == 'partial_update':
-    #         permission_classes = IsLoggedInUserOrAdmin
-    #     elif self.action == 'list' or self.action == 'destroy':
-    #         permission_classes = [IsAdminUser]
-    #     return [permission() for permission in permission_classes]
-
-
 
 
 # order service requests by time sent in from most recent to least recent
 class ServiceRequestAPIView(generics.ListCreateAPIView):
     queryset = ServiceRequest.objects.order_by('-time_sent')
     serializer_class = ServiceRequestSerializer
+
+    def get_queryset(self):
+        """
+        Optionally restricts the returned service request to an id passed by the front end 
+        """
+        queryset = ServiceRequest.objects.order_by('-time_sent')
+        author = self.request.query_params.get('author', None)
+        if author is not None:
+            queryset = queryset.filter(author=author)
+        return queryset
 
 # just a landing page for us to come back to
 def index(request):
