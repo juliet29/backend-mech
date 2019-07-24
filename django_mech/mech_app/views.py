@@ -35,9 +35,34 @@ class ServiceRequestAPIView(generics.ListCreateAPIView):
         """
         queryset = ServiceRequest.objects.order_by('-time_sent')
         author = self.request.query_params.get('author', None)
+        request_id = self.request.query_params.get('request_id', None)
+
         if author is not None:
             queryset = queryset.filter(author=author)
+        
+        if request_id is not None:
+            queryset = queryset.filter(request_id=request_id)
+
         return queryset
+
+class EditServiceRequestAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ServiceRequest.objects.all()
+    lookup_url_kwarg = 'request_id'
+    serializer_class = ServiceRequestSerializer
+    
+
+    def get_queryset(self):
+        """
+        Optionally restricts the returned service request to an id passed by the front end 
+        """
+        queryset = ServiceRequest.objects.order_by('-time_sent')
+        request_id = self.request.query_params.get('request_id', None)
+        
+        if request_id is not None:
+            queryset = queryset.filter(request_id=request_id)
+
+        return queryset
+
 
 # just a landing page for us to come back to
 def index(request):
