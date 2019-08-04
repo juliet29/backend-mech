@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics, viewsets
-from .models import ServiceRequest
+from .models import ServiceRequest, UserDetails
 from django.contrib.auth.models import User
-from .serializers import ServiceRequestSerializer, UserSerializer
+from .serializers import ServiceRequestSerializer, UserSerializer, UserDetailsSerializer
 from .permissions import IsLoggedInUserOrAdmin, IsAdminUser
 from rest_framework.permissions import AllowAny
 
@@ -22,7 +22,10 @@ class UserViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(username__iexact=username)
         return queryset
 
-
+# get all user details - particularly phone numbers
+class UserDetailsAPIView(generics.ListCreateAPIView):
+    queryset = UserDetails.objects.all()
+    serializer_class = UserDetailsSerializer
 
 # order service requests by time sent in from most recent to least recent
 class ServiceRequestAPIView(generics.ListCreateAPIView):

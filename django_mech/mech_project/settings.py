@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '^99t!)kszkkf2r&(3c)8c7ub=n7@f*&f+zxnodd6-sb!u3v86i'
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -153,11 +154,11 @@ REST_FRAMEWORK = {
         #'rest_framework.permissions.IsAdminUser',
         #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework.authentication.SessionAuthentication',
+    #     'rest_framework.authentication.BasicAuthentication',
+    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+    # ),
 }
 
 # REST_USE_JWT = True
