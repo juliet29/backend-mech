@@ -1,0 +1,1 @@
+web: gunicorn mech_project.wsgi --log-file -
