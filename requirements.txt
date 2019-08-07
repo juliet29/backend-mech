@@ -1,7 +1,7 @@
 Babel==2.7.0
 configparser==3.7.4
 dj-database-url==0.5.0
-Django==2.2.3
+Django==2.2.4
 django-cors-headers==3.0.2
 django-extensions==2.1.9
 django-heroku==0.3.1
@@ -19,7 +19,6 @@ mysqlclient==1.4.2.post1
 phonenumbers==8.10.15
 protobuf==3.9.1
 psycopg2==2.8.3
-psycopg2-binary==2.7.7
 PyJWT==1.7.1
 pytz==2019.1
 six==1.12.0

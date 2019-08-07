@@ -1,1 +1,0 @@
-web: gunicorn django_mech.mech_project.wsgi --log-file -
