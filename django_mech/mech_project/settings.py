@@ -49,9 +49,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'mech_app',
     'corsheaders',
-    'rest_framework.authtoken', 
-    'rest_auth', 
-    'phonenumber_field',              
+    'rest_framework.authtoken',
+    'rest_auth',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -90,15 +90,25 @@ WSGI_APPLICATION = 'mech_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'mechdata',
+#         'USER': 'root',
+#         'PASSWORD': '29Chinedu!',
+#         'HOST': 'localhost',
+#         'PORT': '3306'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'mechdata',
-        'USER': 'root',
-        'PASSWORD': '29Chinedu!',
-        'HOST': 'localhost',   
-        'PORT': '3306'
-    }    
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ssgl2019$pamechdata',
+        'USER': 'ssgl2019',
+        'PASSWORD': 'VvCSVCP3vRddwTp',
+        'HOST': 'ssgl2019.mysql.pythonanywhere-services.com'
+    }
 }
 
 
@@ -160,7 +170,7 @@ REST_FRAMEWORK = {
 
 # REST_USE_JWT = True
 
-# allow the user to refesh within a session 
+# allow the user to refesh within a session
 JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True,
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),
