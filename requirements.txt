@@ -8,7 +8,7 @@ django-mysql==3.2.0
 django-phonenumber-field==3.0.1
 django-rest-auth==0.9.5
 django-shell-plus==1.1.7
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 djangorestframework-jwt-refresh-token==0.5
 djangorestframework-simplejwt==4.3.0
