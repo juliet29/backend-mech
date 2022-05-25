@@ -16,7 +16,7 @@ mysql-connector-python==8.0.17
 mysqlclient==1.4.2.post1
 phonenumbers==8.10.15
 protobuf==3.9.1
-PyJWT==1.7.1
+PyJWT==2.4.0
 pytz==2019.1
 six==1.12.0
 sqlparse==0.3.0
